@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Experentals</string>
+    <string name="todo">TODO</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_registered_n_sign_in">Already Registered ? SIGN IN</string>
+    <string name="todo2">TODO</string>
+    <string name="login">LOGIN</string>
+    <string name="not_having_an_account_sign_up_now">Not having an account ? SIGN UP now</string>
+    <string name="login_to_expererntals">Login to Expererntals</string>
+    <string name="textview">TextView</string>
+    <string name="logout">LogOut</string>
+    <string name="less1">TODO</string>
+    <string name="less2">TODO</string>
+    <string name="choose">What do you want to do ?</string>
+    <string name="fill_in_the_following_details_to_place_an_advertisement_for_your_equipment">Fill in the following details to place an advertisement for your equipment</string>
+    <string name="item_name">Item Name</string>
+    <string name="category">Category</string>
+    <string name="monthly_rent_amount">Monthly rent amount</string>
+    <string name="description">Description</string>
+    <string name="location">Location</string>
+    <string name="post_advertisement">Place Advertisement</string>
+
+    <string name="image_file">Image file :</string>
+    <string name="upload_nimage">Upload Image</string>
+    <string name="uploadedimage">TODO</string>
+    <string name="upload">Upload</string>
+</resources>
