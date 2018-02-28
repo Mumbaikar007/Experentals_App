@@ -4,12 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-<!--    Following 3 permissions are added because Gallery errors -->
+    <!-- Following 3 permissions are added because Gallery errors -->
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />   <!-- Internet permission -->
-    <uses-feature android:name="android.hardware.camera" android:required="true"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Internet permission -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -34,8 +35,10 @@
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".PlaceAdActivity"
+        <activity
+            android:name=".PlaceAdActivity"
             android:theme="@style/AppTheme" />
+        <activity android:name=".Receiver"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.adarsh.experentals.Receiver">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Spinner
+            android:paddingBottom="3dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_stations_names"
+
+            />
+
+        <Spinner
+            android:paddingTop="3dp"
+            android:layout_marginTop="5dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_stations_names"
+            android:id="@+id/spinner_veg_or_nonveg"
+
+            />
+
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+
+            android:text="check"
+
+            android:id="@+id/button4"
+            android:onClick="check"
+            android:layout_below="@+id/spinner_veg_or_nonveg" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+
+            android:id="@+id/listview_receiver_retrive"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/spinner_veg_or_nonveg" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Check your status"
+            android:onClick="receiver_status"/>
+
+
+    </LinearLayout>
+    
+    
+</android.support.constraint.ConstraintLayout>
