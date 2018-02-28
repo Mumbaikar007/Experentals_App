@@ -1,10 +1,8 @@
 package com.example.adarsh.experentals;
 
-<<<<<<< HEAD
+
 import  android.app.ProgressDialog;
-=======
-import android.app.ProgressDialog;
->>>>>>> cc8ee297bac9c1fad1fb5e2c72f077e83a49c264
+
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;

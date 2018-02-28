@@ -16,7 +16,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
     private Button buttonLogout;
-    private ImageView imageView1;
+    private ImageView imageView1, imageView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         imageView1.setOnClickListener(this);
 
+        imageView2 = (ImageView) findViewById(R.id.imageView4);
+
+        imageView2.setOnClickListener(this);
+
     }
 
     @Override
@@ -59,6 +63,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             {
                 finish();
                 startActivity(new Intent(this,PlaceAdActivity.class));
+            }
+            else if ( view == imageView2 ){
+                finish();
+                startActivity(new Intent(this,Receiver.class));
             }
     }
 }
