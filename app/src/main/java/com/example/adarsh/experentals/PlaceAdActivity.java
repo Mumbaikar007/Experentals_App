@@ -52,7 +52,13 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() == null){
+            //user is not logged in
+            finish();
+            startActivity(new Intent(this,AuthActivity.class));
 
+        }
 
         buttonupload = (Button) findViewById(R.id.buttonupload);
         upload = (Button) findViewById(R.id.upload2);

@@ -26,4 +26,25 @@
     <string name="upload_nimage">Upload Image</string>
     <string name="uploadedimage">TODO</string>
     <string name="upload">Upload</string>
+
+
+    <array name="Locations">
+
+        <item>All Locations</item>
+        <item>Borivali</item>
+        <item>Kandivali</item>
+        <item>Andheri</item>
+
+    </array>
+
+
+    <array name="Category">
+
+        <item>All Categories</item>
+        <item>Mirco-processors</item>
+        <item>Robotics</item>
+        <item>IOT</item>
+
+    </array>
+
 </resources>
