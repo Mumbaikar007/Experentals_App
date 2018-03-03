@@ -94,4 +94,11 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this,MainActivity.class));
         }
     }
+    public void onBackPressed() {
+        // do something on back.
+        //startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+        //firebaseAuth.signOut();
+        finish();
+        //startActivity(new Intent(this,AuthActivity.class));
+    }
 }
