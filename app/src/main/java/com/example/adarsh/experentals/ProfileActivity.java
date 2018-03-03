@@ -1,8 +1,8 @@
 package com.example.adarsh.experentals;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,7 +15,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
-    private Button buttonLogout;
+    private Button buttonLogout,chats;
     private ImageView imageView1, imageView2;
 
     @Override
@@ -40,6 +40,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
 
+        chats=(Button) findViewById(R.id.button3);
+
+        chats.setOnClickListener(this);
+
         buttonLogout.setOnClickListener(this);
 
         imageView1 = (ImageView) findViewById(R.id.imageView3);
@@ -49,6 +53,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imageView2 = (ImageView) findViewById(R.id.imageView4);
 
         imageView2.setOnClickListener(this);
+
 
     }
 
@@ -67,6 +72,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             else if ( view == imageView2 ){
                 finish();
                 startActivity(new Intent(this,Receiver.class));
+            }
+            else if(view == chats){
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.example.adarsh.uchat");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);//null pointer check in case package name was not found
+                }
             }
     }
 }
