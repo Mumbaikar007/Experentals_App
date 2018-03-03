@@ -6,63 +6,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.adarsh.experentals.Receiver">
-    
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingRight="20dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="25dp">
 
-        <Spinner
-            android:paddingBottom="3dp"
 
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner_stations_names"
-
-            />
+            android:text="Location" />
 
         <Spinner
-            android:paddingTop="3dp"
-            android:layout_marginTop="5dp"
-
+            android:id="@+id/spinnerLocations"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/spinner_stations_names"
-            android:id="@+id/spinner_veg_or_nonveg"
+            android:entries="@array/Locations" />
 
-            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:text="Category" />
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:entries="@array/Category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
 
         <Button
-            android:layout_marginTop="5dp"
+            android:id="@+id/buttonQuery"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_gravity="center"
-
-            android:text="check"
-
-            android:id="@+id/button4"
-            android:onClick="check"
-            android:layout_below="@+id/spinner_veg_or_nonveg" />
+            android:text="Button"
+            android:onClick="QueryItems"/>
 
         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-
-            android:id="@+id/listview_receiver_retrive"
             android:layout_marginTop="10dp"
-            android:layout_alignParentTop="true"
-            android:layout_below="@+id/spinner_veg_or_nonveg" />
-
-        <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Check your status"
-            android:onClick="receiver_status"/>
-
+            android:layout_height="match_parent"
+            android:id="@+id/listViewItems"/>
 
     </LinearLayout>
-    
     
 </android.support.constraint.ConstraintLayout>
