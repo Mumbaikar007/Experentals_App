@@ -7,40 +7,6 @@
     tools:context="com.example.adarsh.experentals.ProfileActivity"
     android:background="#FFF">
 
-    <!-- removing..and adding email in ActionBar
-    <TextView
-        android:id="@+id/textViewUserEmail"
-        android:layout_width="267dp"
-        android:layout_height="77dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/textview"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/buttonLogout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="11dp" />
-
-    <Button
-        android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="444dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/logout"
-        android:background="@color/colorAccent"
-        android:textColor="#FFF"
-        android:textAlignment="center"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="16dp" />
--->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="176dp"
@@ -85,6 +51,17 @@
         android:text="Go to my chats"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="12dp"
+        android:text="Go to my chats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
 
 
 </android.support.constraint.ConstraintLayout>
