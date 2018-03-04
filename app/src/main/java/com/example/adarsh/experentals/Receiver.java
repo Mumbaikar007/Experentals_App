@@ -3,11 +3,10 @@ package com.example.adarsh.experentals;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-<<<<<<< HEAD
+
 import android.view.Menu;
 import android.view.MenuItem;
-=======
->>>>>>> 8f60fe433e111300155e64f635fb457fafd59e86
+
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;

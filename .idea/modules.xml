@@ -3,10 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Experentals.iml" filepath="$PROJECT_DIR$/Experentals.iml" />
-<<<<<<< HEAD
-=======
-      <module fileurl="file://C:\Users\ADARSH\AndroidStudioProjects\Experentals\Pragati.iml" filepath="C:\Users\ADARSH\AndroidStudioProjects\Experentals\Pragati.iml" />
->>>>>>> 8f60fe433e111300155e64f635fb457fafd59e86
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
