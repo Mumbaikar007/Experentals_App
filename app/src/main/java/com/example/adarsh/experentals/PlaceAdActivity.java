@@ -4,11 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,11 +18,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -45,10 +44,14 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
 
     private EditText itemName, category, description, monthlyRent, location;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_ad);
+
+
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -75,6 +78,26 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
         upload.setOnClickListener(this);
         placeAd.setOnClickListener(this);
 
+    }
+    private FirebaseAuth firebaseAuth;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_name:
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(this,AuthActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void showFileChooser() {
@@ -158,5 +181,11 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
                 //e.printStackTrace();            }
         //    }
         }
+    }
+    @Override
+    public void onBackPressed() {
+        // do something on back.
+        startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+        finish();
     }
 }

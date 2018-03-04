@@ -34,11 +34,16 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ProfileActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:label="You are logged in !"/>
         <activity
             android:name=".PlaceAdActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".Receiver"></activity>
+            android:theme="@style/AppTheme"
+            android:label="Place Advertisement"/>
+
+        <activity android:name=".Receiver"
+            android:theme="@style/AppTheme"
+            android:label="Search on Experentals"></activity>
     </application>
 
 </manifest>
