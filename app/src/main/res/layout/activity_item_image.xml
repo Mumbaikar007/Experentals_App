@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adarsh.experentals.ItemImage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="341dp"
+            android:id="@+id/imageView_food_pic"
+            android:layout_weight="0.33" />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/black"
+            android:text="Take Photo"
+            android:onClick="clicktopic"/>
+
+        <Button
+
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/black"
+            android:text="save "
+            android:onClick="onSave"/>
+
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

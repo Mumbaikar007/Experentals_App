@@ -1,16 +1,23 @@
 package com.example.adarsh.experentals;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +31,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Receiver extends AppCompatActivity  {
@@ -34,6 +42,7 @@ public class Receiver extends AppCompatActivity  {
 
     List <String> itemNames;
     ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String>arrayListUid;
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
@@ -47,7 +56,7 @@ public class Receiver extends AppCompatActivity  {
 
         spinnerCategory = findViewById(R.id.spinnerCategory);
         spinnerLocation = findViewById(R.id.spinnerLocations);
-
+        arrayListUid= new ArrayList<>();
         buttonQuery = findViewById(R.id.buttonQuery);
         listViewItems = findViewById(R.id.listViewItems);
 
@@ -64,7 +73,7 @@ public class Receiver extends AppCompatActivity  {
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference= FirebaseDatabase.getInstance().getReference();
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("Advert");
         firebaseUser=firebaseAuth.getCurrentUser();
 
 
@@ -72,14 +81,56 @@ public class Receiver extends AppCompatActivity  {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                List<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
                 itemNames.clear();
+                String[] from = { "flag","txt","cur" };
+                int[] to = { R.id.flag,R.id.txt,R.id.cur};
+
+
                 for ( DataSnapshot ds: dataSnapshot.getChildren() ){
+
                     Advert advert = ds.getValue(Advert.class);
                     itemNames.add(advert.itemName);
+                    arrayListUid.add(ds.getKey());
+                    Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
+
+                    byte[] decode_image= Base64.decode(advert.image,Base64.DEFAULT);
+                    Bitmap bitmap_image= BitmapFactory.decodeByteArray(decode_image,0,decode_image.length);
+
+                    //food_image.setImageBitmap(bitmap_image);
+
+                    Drawable d = new BitmapDrawable(getResources(), bitmap_image);
+
+                    HashMap<String, String> hm = new HashMap<String,String>();
+                    hm.put("txt", "Name : " + advert.itemName);
+                    hm.put("cur","Monthly Rent : " + advert.monthlyRent);
+                    hm.put("flag", d.toString() );
+                    aList.add(hm);
+
+
+
+
                 }
 
+                SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), aList, R.layout.listing_for_receiver, from, to);
+
+
                 arrayAdapter = new ArrayAdapter<String>(Receiver.this, android.R.layout.simple_list_item_1, itemNames);
-                listViewItems.setAdapter(arrayAdapter);
+                listViewItems.setAdapter(adapter);
+
+
+
+                listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        String info_uid=  arrayListUid.get(i) ;
+                        Toast.makeText(Receiver.this,info_uid,Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Receiver.this,ReceiverItemSelect.class).putExtra("uid",info_uid));
+
+                    }
+                });
+
             }
 
             @Override
@@ -129,9 +180,12 @@ public class Receiver extends AppCompatActivity  {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 itemNames.clear();
+
                 for ( DataSnapshot ds: dataSnapshot.getChildren() ){
                     Advert advert = ds.getValue(Advert.class);
                     itemNames.add(advert.itemName);
+                    arrayListUid.add(ds.getKey());
+                    Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
                 }
 
                 arrayAdapter = new ArrayAdapter<String>(Receiver.this, android.R.layout.simple_list_item_1, itemNames);
@@ -163,8 +217,8 @@ public class Receiver extends AppCompatActivity  {
 
                     if ( advert.category.equals(category) ) {
                         itemNames.add(advert.itemName);
-
-                        Toast.makeText(getApplicationContext(), "locationFood" + advert.itemName, Toast.LENGTH_LONG).show();
+                        arrayListUid.add(ds.getKey());
+                        Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
 
                         //arrayListUid.add(ds.getKey());
                     }
@@ -175,18 +229,18 @@ public class Receiver extends AppCompatActivity  {
                 arrayAdapter =new ArrayAdapter<String>(Receiver.this,android.R.layout.simple_list_item_1, itemNames);
                 listViewItems.setAdapter(arrayAdapter);
 
-                /*
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                         String info_uid=  arrayListUid.get(i) ;
                         //Toast.makeText(Receiver_retrive_information.this,info_uid,Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Receiver_retrive_information.this,Receiver_click_activity.class).putExtra("uid",info_uid));
+                        startActivity(new Intent(Receiver.this,ReceiverItemSelect.class).putExtra("uid",info_uid));
 
                     }
                 });
-                */
+
 
             }
 
@@ -203,7 +257,7 @@ public class Receiver extends AppCompatActivity  {
         String location = spinnerLocation.getSelectedItem().toString();
         String category = spinnerCategory.getSelectedItem().toString();
 
-        //arrayListUid.clear();
+        arrayListUid.clear();
         itemNames.clear();
 
         if (location != "All Locations" && category == "All Categories") {

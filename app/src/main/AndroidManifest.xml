@@ -3,6 +3,7 @@
     package="com.example.adarsh.experentals">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- Following 3 permissions are added because Gallery errors -->
 
@@ -34,16 +35,18 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ProfileActivity"
-            android:theme="@style/AppTheme"
-            android:label="You are logged in !"/>
+            android:label="You are logged in !"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".PlaceAdActivity"
-            android:theme="@style/AppTheme"
-            android:label="Place Advertisement"/>
-
-        <activity android:name=".Receiver"
-            android:theme="@style/AppTheme"
-            android:label="Search on Experentals"></activity>
+            android:label="Place Advertisement"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Receiver"
+            android:label="Search on Experentals"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ItemImage" />
+        <activity android:name=".ReceiverItemSelect" />
     </application>
 
 </manifest>

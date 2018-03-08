@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adarsh.experentals.Call_or_msg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text=""
+            android:textSize="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/textViewDonerName"
+            android:id="@+id/textView3_display_contact" />
+
+        <Button
+            android:id="@+id/button4_call"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3_display_contact"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:onClick="call"
+            android:text="call"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="287dp" />
+
+        <Button
+
+            android:id="@+id/button5_msg"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/editText_sms_content"
+            android:layout_gravity="center"
+            android:onClick="sms"
+            android:text="send sms"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="146dp" />
+
+        <EditText
+            android:id="@+id/editText_sms_content"
+
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/button4_call"
+            android:alpha="0.65"
+            android:hint="type sms content"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="194dp" />
+
+        <TextView
+            android:id="@+id/textViewDonerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="TextView"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/textView_book"
+            android:layout_toStartOf="@+id/button5_msg"
+            android:onClick="hireTransport"
+            android:text="Deal done?want to hire transport system?"
+            android:textSize="15dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="39dp" />
+
+        <Button
+            android:id="@+id/button_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button5_msg"
+
+            android:onClick="book"
+            android:text="BOOK DONOTION"
+            android:textColor="@color/black"
+
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="380dp" />
+
+        <TextView
+            android:id="@+id/textView_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_book"
+            android:onClick="unbook"
+            android:text="Want To UnBook ?"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="78dp" />
+
+
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
