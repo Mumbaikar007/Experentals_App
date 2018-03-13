@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
-    private Button buttonLogout,chats;
+    private Button buttonLogout,chats, buttonCheckRentedItems;
     private ImageView imageView1, imageView2;
 
 
@@ -27,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
 
         firebaseAuth=FirebaseAuth.getInstance();
+        buttonCheckRentedItems = findViewById(R.id.buttonCheckRentedItems);
 
         if(firebaseAuth.getCurrentUser() == null){
             //user is not logged in
@@ -60,6 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         imageView2.setOnClickListener(this);
 
+        buttonCheckRentedItems.setOnClickListener(this);
 
     }
 
@@ -103,6 +105,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 if (launchIntent != null) {
                     startActivity(launchIntent);//null pointer check in case package name was not found
                 }
+            }
+            else if ( view == buttonCheckRentedItems){
+                startActivity(new Intent(this, RenterStatus2.class));
             }
     }
 

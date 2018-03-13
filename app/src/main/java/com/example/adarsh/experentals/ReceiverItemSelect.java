@@ -73,8 +73,8 @@ public class ReceiverItemSelect extends AppCompatActivity {
         //Intent x=getIntent();
         //uid= x.getStringExtra("uid");
         //Toast.makeText(getApplicationContext(), "locationFood" + uid, Toast.LENGTH_LONG).show();
-        //   String name=x.getStringExtra("name");
-        // donor_uid.setText(uid);
+        //String name=x.getStringExtra("name");
+        //donor_uid.setText(uid);
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
@@ -88,14 +88,14 @@ public class ReceiverItemSelect extends AppCompatActivity {
         textViewDescription.setText("Description: " + advert.description);
         textViewAmount.setText("Amount: " + advert.monthlyRent);
         textViewName.setText("Name: " + advert.itemName);
-
+        textViewBid.setText("Current Maximum Bid: " + advert.bid);
 
         buttonPlaceBid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int userBid = Integer.parseInt(editTextBidded.getText().toString());
                 int previousBid = Integer.parseInt(advert.bid);
-                if ( userBid < previousBid ){
+                if ( userBid > previousBid ){
 
                     advert.bid = Integer.toString(userBid);
                     advert.bidder = FirebaseAuth.getInstance().getCurrentUser().getUid();
