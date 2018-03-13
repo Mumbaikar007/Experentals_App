@@ -1,12 +1,19 @@
 package com.example.adarsh.experentals;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +31,14 @@ public class ReceiverItemSelect extends AppCompatActivity {
     // TextView donor_uid;
     FirebaseAuth firebaseAuth;
     ArrayList<String> arrayList_donor_info;
+
+    TextView textViewName, textViewAmount, textViewDescription;
+    TextView textViewBid;
+
+    EditText editTextBidded;
+    Button buttonPlaceBid;
+
+    ImageView imageView;
     ArrayAdapter<String> adapter;
     ListView listView_donor_info;
     DatabaseReference databaseReference;
@@ -41,74 +56,56 @@ public class ReceiverItemSelect extends AppCompatActivity {
         setContentView(R.layout.activity_receiver_item_select);
 
         arrayList_donor_info=new ArrayList<>();
-        listView_donor_info=(ListView)findViewById(R.id.listview_donor_info) ;
+        //advertArrayList = new ArrayList<>();
+
+        final Advert advert = getIntent().getExtras().getParcelable("advertObj");
+
+        textViewName = findViewById(R.id.textViewName);
+        textViewAmount = findViewById(R.id.textViewAmount);
+        textViewDescription = findViewById(R.id.textViewDescription);
+        imageView = findViewById( R.id.imageViewImage);
+        textViewBid = findViewById(R.id.textViewBid);
+        editTextBidded = findViewById(R.id.editTextBidded);
+        buttonPlaceBid = findViewById(R.id.buttonPlaceBid);
 
 
-        Intent x=getIntent();
-        uid= x.getStringExtra("uid");
-        Toast.makeText(getApplicationContext(), "locationFood" + uid, Toast.LENGTH_LONG).show();
+
+        //Intent x=getIntent();
+        //uid= x.getStringExtra("uid");
+        //Toast.makeText(getApplicationContext(), "locationFood" + uid, Toast.LENGTH_LONG).show();
         //   String name=x.getStringExtra("name");
         // donor_uid.setText(uid);
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference= FirebaseDatabase.getInstance().getReference().child(uid);
+        databaseReference= FirebaseDatabase.getInstance().getReference("Advert").child(advert.id);
 
-        // Toast.makeText(this,uid,Toast.LENGTH_SHORT).show();
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        byte[] decode_image= Base64.decode(advert.image,Base64.DEFAULT);
+        Bitmap bitmap_image= BitmapFactory.decodeByteArray(decode_image,0,decode_image.length);
+
+
+        imageView.setImageBitmap(bitmap_image);
+        textViewDescription.setText("Description: " + advert.description);
+        textViewAmount.setText("Amount: " + advert.monthlyRent);
+        textViewName.setText("Name: " + advert.itemName);
+
+
+        buttonPlaceBid.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot ds) {
+            public void onClick(View view) {
+                int userBid = Integer.parseInt(editTextBidded.getText().toString());
+                int previousBid = Integer.parseInt(advert.bid);
+                if ( userBid < previousBid ){
 
-                Advert advert = ds.getValue(Advert.class);
+                    advert.bid = Integer.toString(userBid);
+                    advert.bidder = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    databaseReference.setValue(advert);
+                    textViewBid.setText(advert.bid);
+                    Toast.makeText(ReceiverItemSelect.this, "Bid Placed !", Toast.LENGTH_LONG).show();
 
-                /*
-                arrayList_donor_info.add("Name: "+ advert.itemName);
-                //arrayList_donor_info.add("Address: "+ advert.address);
-                arrayList_donor_info.add("Category: " + advert.category);
-                arrayList_donor_info.add("Description: " + advert.description);
-                arrayList_donor_info.add("Monthly Rent: " + advert.monthlyRent);
-                arrayList_donor_info.add("Location: " +advert.location);
-
-
-
-
-                address_for_location= advert.address;
-
-                food_pic= advert.image;
-                latitude3= advert.latitude;
-                longitude3= advert.longitude;
-
-
-                arrayList_donor_info.add("check food pic");
-
-                adapter=new ArrayAdapter<String>(ReceiverItemSelect.this,android.R.layout.simple_list_item_1,arrayList_donor_info);
-                listView_donor_info.setAdapter(adapter);
-                */
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        /*
-        listView_donor_info.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                if(i==9)
-                {
-                    Toast.makeText(ReceiverItemSelect.this,"check",Toast.LENGTH_SHORT).show();
-                    //startActivity(new Intent(ReceiverItemSelect.this,Receiver_food_image.class).putExtra("image1",food_pic));
                 }
-
-
-
             }
         });
-        */
 
     }
 

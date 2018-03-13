@@ -11,6 +11,7 @@ public class Advert implements Parcelable {
 
     public String itemName,category,description,monthlyRent,location;
     public String image, renterId, latitude, longitude, address;
+    public String bid, id, bidder;
 
 
     @Override
@@ -31,6 +32,8 @@ public class Advert implements Parcelable {
         parcel.writeString(renterId);
         parcel.writeString(latitude);
         parcel.writeString(longitude);
+        parcel.writeString(bid);
+        parcel.writeString(id);
 
     }
 
@@ -59,14 +62,10 @@ public class Advert implements Parcelable {
         renterId = in.readString();
         latitude = in.readString();
         longitude = in.readString();
+        bid = in.readString();
+        id = in.readString();
 
     }
-
-
-
-
-
-
 
 
 
@@ -77,7 +76,7 @@ public class Advert implements Parcelable {
 
     public Advert(String itemName, String category, String description, String monthlyRent,
                   String location, String image, String renterId, String Latitude,
-                  String Longitude, String address){
+                  String Longitude, String address, String id){
 
         this.itemName=itemName;
         this.category=category;
@@ -89,6 +88,9 @@ public class Advert implements Parcelable {
         this.latitude = Latitude;
         this.longitude = Longitude;
         this.address = address;
+        this.bid = monthlyRent;
+        this.id = id;
+        this.bidder = "NULL";
 
     }
 

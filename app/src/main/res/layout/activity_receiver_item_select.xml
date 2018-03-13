@@ -7,39 +7,105 @@
     tools:context="com.example.adarsh.experentals.ReceiverItemSelect">
 
 
-    <Button
-
-        android:id="@+id/button5"
-        android:layout_width="225dp"
-        android:layout_height="49dp"
-
-        android:layout_marginBottom="72dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:onClick="getLocation"
-        android:text="get donor location"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/listview_donor_info"
-        app:layout_constraintStart_toStartOf="@+id/listview_donor_info" />
-
-    <ListView
-
-        android:id="@+id/listview_donor_info"
-        android:layout_width="364dp"
-        android:layout_height="315dp"
+    <ImageView
+        android:id="@+id/imageViewImage"
+        android:layout_width="317dp"
+        android:layout_height="139dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewName"
+        app:layout_constraintEnd_toEndOf="@+id/textViewName"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="@+id/textViewName"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556" />
+        app:layout_constraintVertical_bias="0.4" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Chat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDescription"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/textViewDescription" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="275dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDescription"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDescription"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewDescription" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="275dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="310dp" />
+
+    <TextView
+        android:id="@+id/textViewAmount"
+        android:layout_width="267dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDescription"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDescription"
+        app:layout_constraintStart_toStartOf="@+id/textViewDescription" />
+
+    <TextView
+        android:id="@+id/textViewBid"
+        android:layout_width="269dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/editTextBidded"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDescription"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewDescription" />
+
+    <EditText
+        android:id="@+id/editTextBidded"
+        android:layout_width="147dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="Place your bid"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPlaceBid"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewBid" />
+
+    <Button
+        android:id="@+id/buttonPlaceBid"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="4dp"
+        android:text="Place Bid"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBid" />
 
 
 </android.support.constraint.ConstraintLayout>

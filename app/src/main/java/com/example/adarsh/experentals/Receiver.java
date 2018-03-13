@@ -43,6 +43,7 @@ public class Receiver extends AppCompatActivity  {
     List <String> itemNames;
     ArrayAdapter<String> arrayAdapter;
     private ArrayList<String>arrayListUid;
+    ArrayList<Advert> advertArrayList;
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
@@ -59,7 +60,7 @@ public class Receiver extends AppCompatActivity  {
         arrayListUid= new ArrayList<>();
         buttonQuery = findViewById(R.id.buttonQuery);
         listViewItems = findViewById(R.id.listViewItems);
-
+        advertArrayList = new ArrayList<>();
         itemNames = new ArrayList<String>();
 
 
@@ -93,6 +94,7 @@ public class Receiver extends AppCompatActivity  {
                     itemNames.add(advert.itemName);
                     arrayListUid.add(ds.getKey());
                     Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
+                    advertArrayList.add(advert);
 
                     byte[] decode_image= Base64.decode(advert.image,Base64.DEFAULT);
                     Bitmap bitmap_image= BitmapFactory.decodeByteArray(decode_image,0,decode_image.length);
@@ -104,19 +106,16 @@ public class Receiver extends AppCompatActivity  {
                     HashMap<String, String> hm = new HashMap<String,String>();
                     hm.put("txt", "Name : " + advert.itemName);
                     hm.put("cur","Monthly Rent : " + advert.monthlyRent);
-                    hm.put("flag", d.toString() );
+                    hm.put("flag", bitmap_image.toString());
                     aList.add(hm);
-
-
-
 
                 }
 
                 SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), aList, R.layout.listing_for_receiver, from, to);
-
+                ExtendedSimpleAdapter  adapter1 = new ExtendedSimpleAdapter( getBaseContext(), aList, R.layout.listing_for_receiver, from, to);
 
                 arrayAdapter = new ArrayAdapter<String>(Receiver.this, android.R.layout.simple_list_item_1, itemNames);
-                listViewItems.setAdapter(adapter);
+                listViewItems.setAdapter(adapter1);
 
 
 
@@ -124,9 +123,10 @@ public class Receiver extends AppCompatActivity  {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                        Advert advert = advertArrayList.get(i);
                         String info_uid=  arrayListUid.get(i) ;
-                        Toast.makeText(Receiver.this,info_uid,Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Receiver.this,ReceiverItemSelect.class).putExtra("uid",info_uid));
+                        //Toast.makeText(Receiver.this,info_uid,Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Receiver.this,ReceiverItemSelect.class).putExtra("advertObj",advert));
 
                     }
                 });
@@ -180,9 +180,11 @@ public class Receiver extends AppCompatActivity  {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 itemNames.clear();
+                advertArrayList.clear();
 
                 for ( DataSnapshot ds: dataSnapshot.getChildren() ){
                     Advert advert = ds.getValue(Advert.class);
+                    advertArrayList.add(advert);
                     itemNames.add(advert.itemName);
                     arrayListUid.add(ds.getKey());
                     Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
@@ -190,6 +192,19 @@ public class Receiver extends AppCompatActivity  {
 
                 arrayAdapter = new ArrayAdapter<String>(Receiver.this, android.R.layout.simple_list_item_1, itemNames);
                 listViewItems.setAdapter(arrayAdapter);
+
+                listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        Advert advert = advertArrayList.get(i);
+                        String info_uid=  arrayListUid.get(i) ;
+                        //Toast.makeText(Receiver.this,info_uid,Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Receiver.this,ReceiverItemSelect.class).putExtra("advertObj",advert));
+
+                    }
+                });
+
             }
 
             @Override
@@ -259,6 +274,7 @@ public class Receiver extends AppCompatActivity  {
 
         arrayListUid.clear();
         itemNames.clear();
+        advertArrayList.clear();
 
         if (location != "All Locations" && category == "All Categories") {
             singleQuery( location, 1);

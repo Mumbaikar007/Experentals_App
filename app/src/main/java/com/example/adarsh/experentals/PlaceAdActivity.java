@@ -238,14 +238,17 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
 
         if (view == placeAd) {
           //  try {
-                Advert advert = new Advert(itemName.getText().toString(),
-                        category.getText().toString(), description.getText().toString(),
-                        monthlyRent.getText().toString(), spinnerLocation.getSelectedItem().toString(),
-                        imageString, FirebaseAuth.getInstance().getCurrentUser().getUid(), Latitudeee,
-                        Longitudee, address);
                 //uploadFile();
-                mDatabaseReference.child("Advert").push().setValue(advert);
-                Toast.makeText(getApplicationContext(), "Advertisement placed Successfully ", Toast.LENGTH_LONG).show();
+                String id = mDatabaseReference.child("Advert").push().getKey();
+                Advert advert = new Advert(itemName.getText().toString(),
+                    category.getText().toString(), description.getText().toString(),
+                    monthlyRent.getText().toString(), spinnerLocation.getSelectedItem().toString(),
+                    imageString, FirebaseAuth.getInstance().getCurrentUser().getUid(), Latitudeee,
+                    Longitudee, address, id);
+
+            mDatabaseReference.child("Advert").child(id).setValue(advert);
+
+            Toast.makeText(getApplicationContext(), "Advertisement placed Successfully ", Toast.LENGTH_LONG).show();
 
             // } catch (Exception e) {
                 //e.printStackTrace();            }
