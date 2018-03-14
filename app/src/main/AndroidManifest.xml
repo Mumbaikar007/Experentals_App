@@ -48,7 +48,8 @@
         <activity android:name=".ItemImage" />
         <activity android:name=".ReceiverItemSelect" />
         <activity android:name=".RenterStatus" />
-        <activity android:name=".RenterStatus2"></activity>
+        <activity android:name=".RenterStatus2" />
+        <activity android:name=".laCart"></activity>
     </application>
 
 </manifest>

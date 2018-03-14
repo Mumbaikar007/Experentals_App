@@ -100,7 +100,7 @@ public class ReceiverItemSelect extends AppCompatActivity {
                     advert.bid = Integer.toString(userBid);
                     advert.bidder = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     databaseReference.setValue(advert);
-                    textViewBid.setText(advert.bid);
+                    textViewBid.setText("Current Maximum Bid: " + advert.bid);
                     Toast.makeText(ReceiverItemSelect.this, "Bid Placed !", Toast.LENGTH_LONG).show();
 
                 }

@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -16,8 +18,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
-    private Button buttonLogout,chats, buttonCheckRentedItems;
-    private ImageView imageView1, imageView2;
+    private Button buttonLogout,chats;
+    private LinearLayout buttonCheckRentedItems, buttonCart;
+    private LinearLayout imageView1, imageView2;
 
 
 
@@ -28,6 +31,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         firebaseAuth=FirebaseAuth.getInstance();
         buttonCheckRentedItems = findViewById(R.id.buttonCheckRentedItems);
+        buttonCart = findViewById(R.id.buttonCart);
 
         if(firebaseAuth.getCurrentUser() == null){
             //user is not logged in
@@ -53,15 +57,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //buttonLogout.setOnClickListener(this);
 
 
-        imageView1 = (ImageView) findViewById(R.id.imageView3);
+        imageView1 = findViewById(R.id.imageView3);
 
         imageView1.setOnClickListener(this);
 
-        imageView2 = (ImageView) findViewById(R.id.imageView4);
+        imageView2 =  findViewById(R.id.imageView4);
 
         imageView2.setOnClickListener(this);
 
         buttonCheckRentedItems.setOnClickListener(this);
+        buttonCart.setOnClickListener(this);
 
     }
 
@@ -109,6 +114,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             else if ( view == buttonCheckRentedItems){
                 startActivity(new Intent(this, RenterStatus2.class));
             }
+
+            else if ( view == buttonCart){
+                startActivity(new Intent(this, laCart.class));
+            }
+
     }
 
     public void onBackPressed() {

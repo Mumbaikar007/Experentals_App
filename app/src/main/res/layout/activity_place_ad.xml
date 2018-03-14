@@ -109,12 +109,12 @@
 
     <Button
         android:id="@+id/buttonupload"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="91dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:text="Choose\nFile"
         android:textColor="#FFF"
@@ -122,9 +122,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="@+id/buttonLongLat"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/upload2"
         app:layout_constraintTop_toBottomOf="@+id/buttonLongLat"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="UnknownId" />
 
     <ImageView
@@ -143,11 +143,11 @@
     <Button
         android:id="@+id/upload2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/colorAccent"
-        android:text="@string/upload"
+        android:text="Camera"
         android:textColor="#FFF"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/spinnerLocations" />
