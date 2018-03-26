@@ -93,7 +93,7 @@ public class Receiver extends AppCompatActivity  {
                     Advert advert = ds.getValue(Advert.class);
                     itemNames.add(advert.itemName);
                     arrayListUid.add(ds.getKey());
-                    Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
                     advertArrayList.add(advert);
 
                     byte[] decode_image= Base64.decode(advert.image,Base64.DEFAULT);
@@ -207,7 +207,7 @@ public class Receiver extends AppCompatActivity  {
                     hm.put("flag", bitmap_image.toString());
                     aList.add(hm);
 
-                    Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
                 }
 
                 ExtendedSimpleAdapter  adapter1 = new ExtendedSimpleAdapter( getBaseContext(), aList, R.layout.listing_for_receiver, from, to);
@@ -246,7 +246,7 @@ public class Receiver extends AppCompatActivity  {
         querylocationfoodtype.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Toast.makeText(getApplicationContext(), "" + category + category.length(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "" + category + category.length(), Toast.LENGTH_LONG).show();
                 itemNames.clear();
 
 
@@ -275,7 +275,7 @@ public class Receiver extends AppCompatActivity  {
 
                         Drawable d = new BitmapDrawable(getResources(), bitmap_image);
 
-                        Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "locationFood" + ds.getKey(), Toast.LENGTH_LONG).show();
 
                         HashMap<String, String> hm = new HashMap<String,String>();
                         hm.put("txt", "Name : " + advert.itemName);

@@ -156,7 +156,7 @@ public class laCart extends AppCompatActivity {
         };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Confirm Delete ... ")
+        builder.setMessage("Proceed for payment ... ")
                 .setPositiveButton("Yes", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
 

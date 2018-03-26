@@ -46,13 +46,15 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginTop="21dp"
         android:ems="10"
         android:hint="@string/category"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/editText4"
         app:layout_constraintEnd_toEndOf="@+id/editText4"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText4" />
+        app:layout_constraintStart_toStartOf="@+id/editText4"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
         android:id="@+id/editText3"
@@ -85,58 +87,57 @@
 
     <Spinner
         android:id="@+id/spinnerLocations"
-        android:layout_width="123dp"
+        android:layout_width="207dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="41dp"
         android:ems="10"
         android:entries="@array/Locations"
         android:hint="@string/location"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/upload2"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/editText3" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="344dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginStart="23dp"
+        android:background="@color/colorPrimary"
         android:text="@string/post_advertisement"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonupload"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/upload2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonupload"
         android:layout_width="91dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="31dp"
         android:background="@color/colorPrimary"
         android:text="Choose\nFile"
         android:textColor="#FFF"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/buttonLongLat"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/upload2"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLongLat"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/editText2"
         tools:ignore="UnknownId" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="115dp"
-        android:layout_height="125dp"
+        android:layout_height="138dp"
 
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="168dp"
         android:contentDescription="@string/uploadedimage"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toEndOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -144,23 +145,12 @@
         android:id="@+id/upload2"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="17dp"
         android:background="@color/colorAccent"
         android:text="Camera"
         android:textColor="#FFF"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/spinnerLocations" />
-
-    <Button
-        android:id="@+id/buttonLongLat"
-        android:layout_width="95dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Get Coordinates"
-        app:layout_constraintEnd_toEndOf="@+id/editText3"
-        app:layout_constraintStart_toEndOf="@+id/spinnerLocations"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </android.support.constraint.ConstraintLayout>

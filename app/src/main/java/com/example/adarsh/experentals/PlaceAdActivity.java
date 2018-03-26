@@ -89,7 +89,7 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
         description = (EditText) findViewById(R.id.editText4);
         monthlyRent = (EditText) findViewById(R.id.editText3);
         spinnerLocation =  findViewById(R.id.spinnerLocations);
-        buttonLongLat = findViewById( R.id.buttonLongLat);
+       // buttonLongLat = findViewById( R.id.buttonLongLat);
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
@@ -102,7 +102,7 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
         buttonupload.setOnClickListener(this);
         upload.setOnClickListener(this);
         placeAd.setOnClickListener(this);
-        buttonLongLat.setOnClickListener(this);
+       // buttonLongLat.setOnClickListener(this);
 
     }
     private FirebaseAuth firebaseAuth;
@@ -232,9 +232,9 @@ public class PlaceAdActivity extends AppCompatActivity implements View.OnClickLi
             takepic(view);
         }
 
-        if ( view == buttonLongLat ){
+       /* if ( view == buttonLongLat ){
             getLocation();
-        }
+        }*/
 
         if (view == placeAd) {
           //  try {

@@ -45,11 +45,16 @@
             android:name=".Receiver"
             android:label="Search on Experentals"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ItemImage" />
-        <activity android:name=".ReceiverItemSelect" />
-        <activity android:name=".RenterStatus" />
-        <activity android:name=".RenterStatus2" />
-        <activity android:name=".laCart"></activity>
+        <activity android:name=".ItemImage"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ReceiverItemSelect"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".RenterStatus"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".RenterStatus2"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".laCart"
+            android:theme="@style/AppTheme" ></activity>
     </application>
 
 </manifest>

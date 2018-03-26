@@ -124,7 +124,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void onBackPressed() {
         // do something on back.
         //startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
-        firebaseAuth.signOut();
+        //firebaseAuth.signOut();
         finish();
         //startActivity(new Intent(this,AuthActivity.class));
     }

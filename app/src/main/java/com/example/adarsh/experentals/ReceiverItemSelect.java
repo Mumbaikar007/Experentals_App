@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ReceiverItemSelect extends AppCompatActivity {
+public class ReceiverItemSelect extends AppCompatActivity implements View.OnClickListener {
 
 
     // TextView donor_uid;
@@ -36,7 +36,7 @@ public class ReceiverItemSelect extends AppCompatActivity {
     TextView textViewBid;
 
     EditText editTextBidded;
-    Button buttonPlaceBid;
+    Button buttonPlaceBid,chat;
 
     ImageView imageView;
     ArrayAdapter<String> adapter;
@@ -67,7 +67,8 @@ public class ReceiverItemSelect extends AppCompatActivity {
         textViewBid = findViewById(R.id.textViewBid);
         editTextBidded = findViewById(R.id.editTextBidded);
         buttonPlaceBid = findViewById(R.id.buttonPlaceBid);
-
+        chat=(Button) findViewById(R.id.button4);
+        chat.setOnClickListener(this);
 
 
         //Intent x=getIntent();
@@ -116,5 +117,16 @@ public class ReceiverItemSelect extends AppCompatActivity {
 
         //  startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("geo:" + longitude3 + "," + latitude3)));
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view==chat)
+        {
+            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.example.adarsh.uchat");
+            if (launchIntent != null) {
+                startActivity(launchIntent);//null pointer check in case package name was not found
+            }
+        }
     }
 }
